@@ -1,0 +1,24 @@
+version: '3'
+networks:
+  default:
+    external:
+      name: 4mart-mqtt-net
+services:
+  mqtt_server:
+    image: 4mart/mosquitto_server:0.0.1
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./server/config/mosquitto.conf:/mqtt/config/mosquitto.conf:ro
+      - ./server/data:/mqtt/data
+      - ./server/log:/mqtt/log
+    restart: on-failure
+  mqtt_client_sub:
+    image: 4mart/mosquitto_client_sub:0.0.1
+    links:
+      - mqtt_server
+  mqtt_client_pub:
+    image: 4mart/mosquitto_client_pub:0.0.1
+    links:
+      - mqtt_server

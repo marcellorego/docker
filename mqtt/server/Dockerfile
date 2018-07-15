@@ -1,7 +1,7 @@
 FROM alpine:3.7
 
 MAINTAINER Marcello Rego <marcellorego@gmail.com>
-LABEL Description="Mosquitto MQTT Broker"
+LABEL Description="Mosquitto MQTT Broker Server"
 
 ARG MOSQUITTO_BUILD=1.4.15-r0
 ARG DEFAULT_USER=admin

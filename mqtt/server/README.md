@@ -20,7 +20,7 @@ To use a custom configuration file, change the **local** configuration file at `
 
 Configuration can be changed to:
 
-* persist data to `/mqtt/data`
+* persist data to `/mqtt/data/`
 * log to `/mqtt/log/mosquitto.log`
 
 i.e. add the following to `mosquitto.conf`:

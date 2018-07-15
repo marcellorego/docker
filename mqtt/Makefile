@@ -1,40 +1,7 @@
-SHELL := /usr/bin/env bash
-.DEFAULT_GOAL := help
-.PHONY: rm run
+docker network create --driver bridge 4mart-mqtt-net
+docker network rm 4mart-mqtt-net
+docker network inspect 4mart-mqtt-net
+--network 4mart-mqtt-net
 
-CURRENT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-IMAGE_NAME?=4mart/mosquitto
-IMAGE_TAG?=0.0.1
-CONTAINER_NAME?=mqtt
-
-help:
-	@echo ''
-	@echo 'Makefile for '
-	@echo '     make help		show this information'
-	@echo '     make build		build $(IMAGE_NAME) image'
-	@echo '     make run		run $(IMAGE_NAME) image and creates container $(CONTAINER_NAME)'
-	@echo '     make sh		run a shell on the container $(CONTAINER_NAME)'
-	@echo '     make rm		remove container $(CONTAINER_NAME)'
-
-build:
-	docker build -t $(IMAGE_NAME):$(IMAGE_TAG) .
-
-rm:
-	docker rm -f $(CONTAINER_NAME)
-
-run:
-	docker run -it --name $(CONTAINER_NAME) --restart on-failure -p 1883:1883 -p 9001:9001 \
-		-v $(CURRENT_DIR)/config/mosquitto.conf:/mqtt/config/mosquitto.conf:ro  \
-		-v $(CURRENT_DIR)/data:/mqtt/data \
-		-v $(CURRENT_DIR)/log:/mqtt/log \
-		$(IMAGE_NAME):$(IMAGE_TAG)
-
-sh:
-	docker exec -it $(CONTAINER_NAME) sh
-
-start:
-	docker start $(CONTAINER_NAME)
-
-stop:
-	docker stop $(CONTAINER_NAME)
- 
+mosquitto_pub -h mqtt_server -u admin -P admin123 -d -t hello/world -m "Hello from Terminal window 2!"
+mosquitto_sub -h mqtt_server -u admin -P admin123 -d -t hello/world
