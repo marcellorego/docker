@@ -26,7 +26,10 @@ run:
 	docker run -itd --name $(CONTAINER_NAME) $(IMAGE_NAME):$(IMAGE_TAG)
 
 net:
-	docker run -it --name $(CONTAINER_NAME) --network 4mart-mqtt-net $(IMAGE_NAME):$(IMAGE_TAG)
+	docker run -itd --name $(CONTAINER_NAME) --network 4mart-mqtt-net $(IMAGE_NAME):$(IMAGE_TAG)
+
+netsh:
+	docker run -it --name $(CONTAINER_NAME) --network 4mart-mqtt-net $(IMAGE_NAME):$(IMAGE_TAG) sh
 
 sh:
 	docker exec -it $(CONTAINER_NAME) sh

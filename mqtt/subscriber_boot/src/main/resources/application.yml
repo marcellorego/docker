@@ -1,0 +1,10 @@
+mqtt:
+  username: admin
+  password: admin123
+  clientId: client_springboot
+  host: localhost
+  port: 1883
+  waitTime: 5000
+  qos: 1
+  topic: temperature
+  numMessages: 1000

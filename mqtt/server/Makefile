@@ -13,6 +13,7 @@ help:
 	@echo '     make help		show this information'
 	@echo '     make build		build $(IMAGE_NAME) image'
 	@echo '     make run		run $(IMAGE_NAME) image and creates container $(CONTAINER_NAME)'
+	@echo '     make net		run $(IMAGE_NAME) image, creates container $(CONTAINER_NAME) with network name `4mart-mqtt-net`'
 	@echo '     make sh		run a shell on the container $(CONTAINER_NAME)'
 	@echo '     make rm		remove container $(CONTAINER_NAME)'
 
@@ -30,7 +31,7 @@ run:
 		$(IMAGE_NAME):$(IMAGE_TAG)
 
 net:
-	docker run -it --name $(CONTAINER_NAME) \
+	docker run -itd --name $(CONTAINER_NAME) \
 		--network 4mart-mqtt-net \
 		--restart on-failure \
 		-p 1883:1883 \

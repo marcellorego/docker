@@ -1,2 +1,11 @@
 **/*.log
 **/*.db
+
+.settings
+.classpath
+.factorypath
+.project
+*.iml
+.vscode
+
+**/target
