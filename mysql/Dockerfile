@@ -1,0 +1,6 @@
+FROM mariadb:latest
+
+ENV MYSQL_ROOT_PASSWORD adminpwd
+ENV MYSQL_DATABASE test
+ENV MYSQL_USER user
+ENV MYSQL_PASSWORD userpwd

@@ -1,0 +1,1 @@
+docker build -t mariadb_test:1.0 .

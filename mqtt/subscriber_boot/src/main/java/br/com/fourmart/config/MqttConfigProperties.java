@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties
 @ConfigurationProperties(prefix = "mqtt")
-public class MqttConfig {
+public class MqttConfigProperties {
 
   private String username;
   private String password;

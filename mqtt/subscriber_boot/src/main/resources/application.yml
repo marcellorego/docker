@@ -1,3 +1,11 @@
+deviceType:
+  name: ps006
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://user:userp4ssw0rd@localhost:27017/${deviceType.name}?maxPoolSize=10
+
 mqtt:
   username: admin
   password: admin123

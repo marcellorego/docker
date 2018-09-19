@@ -7,5 +7,7 @@
 .project
 *.iml
 .vscode
+.idea
 
 **/target
+**/data/db
