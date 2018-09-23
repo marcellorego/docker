@@ -1,5 +1,11 @@
 FROM mongo:latest
 
+# Install some packages so the connectivity test can run
+RUN apt-get update -q \
+    && apt-get install -qy netcat-openbsd \
+    && apt-get clean \
+    && rm -rf /var/lib/apt
+
 ARG MONGO_ROOT_USER="admin"
 ARG MONGO_ROOT_PASS="4dmInP4ssw0rd"
 

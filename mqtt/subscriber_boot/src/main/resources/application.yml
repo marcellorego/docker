@@ -1,10 +1,16 @@
 deviceType:
   name: ps006
 
+mongo:
+  user: user
+  password: userp4ssw0rd
+  #uri: mongodb://rad:radpwd@mongo1:27017,mongo2:27017,mongo3:27017/techfirm_rad_platform_config?maxPoolSize=10
+  uri: localhost:27017
+
 spring:
   data:
     mongodb:
-      uri: mongodb://user:userp4ssw0rd@localhost:27017/${deviceType.name}?maxPoolSize=10
+      uri: mongodb://${mongo.user}:${mongo.password}@${mongo.uri}/${deviceType.name}?maxPoolSize=10
 
 mqtt:
   username: admin
@@ -15,4 +21,3 @@ mqtt:
   waitTime: 5000
   qos: 1
   topic: temperature
-  numMessages: 1000

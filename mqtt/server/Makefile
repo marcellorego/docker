@@ -3,7 +3,7 @@ SHELL := /usr/bin/env bash
 .PHONY: rm run
 
 CURRENT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-IMAGE_NAME?=4mart/mosquitto_server
+IMAGE_NAME?=4mart/mqtt_server
 IMAGE_TAG?=0.0.1
 CONTAINER_NAME?=mqtt_server
 
