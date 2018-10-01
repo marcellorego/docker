@@ -1,1 +1,4 @@
-docker build -t mariadb_test:1.0 .
+#!/bin/bash
+set -m
+
+docker build -t 4mart/mariadb:0.0.1 .

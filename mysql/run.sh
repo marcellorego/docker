@@ -1,4 +1,4 @@
 #!/bin/bash
 set -m
 
-docker run --name some-mariadb -d mariadb_test:1.0
+docker run --name some-mariadb -d 4mart/mariadb:0.0.1
